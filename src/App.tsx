@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Header from "./UI/Header";
 import "./styles/uistyle.scss";
+import "./styles/responsive.scss";
 import { Outlet } from "react-router-dom";
 function App() {
   return (

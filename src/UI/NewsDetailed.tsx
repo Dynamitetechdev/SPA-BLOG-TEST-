@@ -12,6 +12,7 @@ const NewsDetails = () => {
   const { data, isPending, error } = useFetch(
     `https://jsonplaceholder.typicode.com/posts/${id}`
   );
+
   return (
     <div className="wrapper">
       <div className="newsDetails">

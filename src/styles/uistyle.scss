@@ -6,7 +6,7 @@ a {
   .bottom-nav {
     display: flex;
     justify-content: space-between;
-    padding: 10px 30px;
+    padding: 20px 30px;
     align-items: center;
     li {
       list-style: none;
@@ -27,6 +27,10 @@ a {
     }
   }
 
+  .top-nav {
+    background-color: antiquewhite;
+    margin-bottom: 15px;
+  }
   .bottom-nav {
     padding: 0 5em;
   }
@@ -69,5 +73,18 @@ a {
     padding: 10px 20px;
     font-size: 18px;
     cursor: pointer;
+  }
+}
+
+.newsDetails {
+  margin: 3em 0;
+  h1 {
+    padding: 20px;
+    background-color: aqua;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+  }
+  p {
+    text-align: justify;
   }
 }
