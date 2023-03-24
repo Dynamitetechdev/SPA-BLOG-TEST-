@@ -1,20 +1,18 @@
-import { FC, useState } from "react";
+import { FC, FormEvent, useState } from "react";
 /**
  * @dev Interface For Search component
  * @dev value - the value that is been inputted or searched for
  */
 interface Props {
-  value: string;
-  setValue: string;
+  value?: string;
+  setValue: React.Dispatch<React.SetStateAction<string>>;
 }
 
 /**
  * @dev This Function is to submit our form, might not be neccessarily needed, since it filters automatically
  */
 const Search: FC<Props> = ({ value, setValue }) => {
-  const handleClick = async (
-    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
-  ): Promise<void> => {
+  const handleClick = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
   };
   return (
@@ -24,7 +22,9 @@ const Search: FC<Props> = ({ value, setValue }) => {
           type="text"
           placeholder="search news"
           value={value ?? ""}
-          onChange={(e) => setValue(e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            setValue(e.target.value)
+          }
         />
         <button type="submit">Search</button>
       </form>

@@ -9,12 +9,17 @@ import useFetch from "../component/useFetch";
  * @dev Also implemented the filter functionality, to enable use search for news
  *
  */
+
+interface News {
+  title: string;
+}
+
 const UkNews = () => {
-  const [searchInput, setSearchInput] = useState<string | null>(null);
+  const [searchInput, setSearchInput] = useState("");
   const { data, isPending, error } = useFetch(
     "https://jsonplaceholder.typicode.com/posts"
   );
-  const [newData, setNewData] = useState([]);
+  const [newData, setNewData] = useState<News[]>([]);
 
   useEffect(() => {
     if (data) {

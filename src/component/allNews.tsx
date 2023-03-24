@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
  * @params newDataProp - brings in the data collected from the API
  */
 interface Props {
-  newDataProp: [];
-  isPendingProp: boolean;
+  newDataProp: Array<any>;
+  isPendingProp: Boolean;
   error: string | null;
 }
 

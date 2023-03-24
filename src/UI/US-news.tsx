@@ -2,17 +2,24 @@ import { useEffect, useState } from "react";
 import AllNews from "../component/allNews";
 import Search from "../component/search";
 import useFetch from "../component/useFetch";
+
 /**
  *
- * @dev This page is for loading the US based news
+ * @dev This page is for loading the UK based news
  * @dev Also implemented the filter functionality, to enable use search for news
  *
  */
-const USNews = () => {
+
+interface News {
+  title: string;
+}
+
+const UkNews = () => {
+  const [searchInput, setSearchInput] = useState("");
   const { data, isPending, error } = useFetch(
     "https://jsonplaceholder.typicode.com/posts"
   );
-  const [newData, setNewData] = useState([]);
+  const [newData, setNewData] = useState<News[]>([]);
 
   useEffect(() => {
     if (data) {
@@ -20,14 +27,15 @@ const USNews = () => {
       setNewData(newDataArr);
     }
   }, [data]);
-  const [searchInput, setSearchInput] = useState<string | null>(null);
 
   const filteredData = newData.filter((news) =>
     news.title.toLowerCase().includes(searchInput)
   );
   return (
     <div className="wrapper">
-      <Search value={searchInput} setValue={setSearchInput} />
+      <div className="search-wrapper">
+        <Search value={searchInput} setValue={setSearchInput} />
+      </div>
       <AllNews
         newDataProp={searchInput == null ? newData : filteredData}
         isPendingProp={isPending}
@@ -37,4 +45,4 @@ const USNews = () => {
   );
 };
 
-export default USNews;
+export default UkNews;
