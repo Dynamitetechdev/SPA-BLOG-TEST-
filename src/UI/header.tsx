@@ -9,7 +9,7 @@ const Header = () => {
     <div className="header">
       <div className="top-nav">
         <div className="logo">
-          <Link to="/">BlogNews</Link>
+          <Link to="/">BlogNew</Link>
         </div>
         <li>
           <a href="https://github.com/Dynamitetechdev">Developer</a>

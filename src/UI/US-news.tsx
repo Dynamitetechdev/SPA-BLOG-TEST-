@@ -20,11 +20,18 @@ const UkNews = () => {
     "https://jsonplaceholder.typicode.com/posts"
   );
   const [newData, setNewData] = useState<News[]>([]);
+  useEffect(() => {
+    const storedData = localStorage.getItem("newData");
+    if (storedData) {
+      setNewData(JSON.parse(storedData));
+    }
+  }, []);
 
   useEffect(() => {
     if (data) {
       const newDataArr = data.slice(11, 21);
       setNewData(newDataArr);
+      localStorage.setItem("newData", JSON.stringify(newDataArr));
     }
   }, [data]);
 
