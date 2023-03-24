@@ -3,7 +3,14 @@ import AllNews from "../component/allNews";
 import Search from "../component/search";
 import useFetch from "../component/useFetch";
 
+/**
+ *
+ * @dev This page is for loading the UK based news
+ * @dev Also implemented the filter functionality, to enable use search for news
+ *
+ */
 const UkNews = () => {
+  const [searchInput, setSearchInput] = useState<string | null>(null);
   const { data, isPending, error } = useFetch(
     "https://jsonplaceholder.typicode.com/posts"
   );
@@ -15,8 +22,6 @@ const UkNews = () => {
       setNewData(newDataArr);
     }
   }, [data]);
-
-  const [searchInput, setSearchInput] = useState<string | null>(null);
 
   const filteredData = newData.filter((news) =>
     news.title.toLowerCase().includes(searchInput)

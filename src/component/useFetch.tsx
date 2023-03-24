@@ -1,5 +1,11 @@
 import { useEffect, useState } from "react";
 
+/**
+ *
+ * @dev A fetch hook used to make the API calls
+ * @returns the data collected, the pending state and the error state, if there is any
+ *
+ */
 const useFetch = (
   url: string
 ): { data: any; isPending: Boolean; error: string | null } => {

@@ -2,7 +2,12 @@ import { useEffect, useState } from "react";
 import AllNews from "../component/allNews";
 import Search from "../component/search";
 import useFetch from "../component/useFetch";
-
+/**
+ *
+ * @dev This page is for loading the US based news
+ * @dev Also implemented the filter functionality, to enable use search for news
+ *
+ */
 const USNews = () => {
   const { data, isPending, error } = useFetch(
     "https://jsonplaceholder.typicode.com/posts"

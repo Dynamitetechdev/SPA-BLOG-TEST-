@@ -1,12 +1,17 @@
 import { FC, useState } from "react";
-
+/**
+ * @dev Interface For Search component
+ * @dev value - the value that is been inputted or searched for
+ */
 interface Props {
   value: string;
   setValue: string;
 }
-const Search: FC<Props> = ({ value, setValue }) => {
-  //   const [searchInput, setSearchInput] = useState(null);
 
+/**
+ * @dev This Function is to submit our form, might not be neccessarily needed, since it filters automatically
+ */
+const Search: FC<Props> = ({ value, setValue }) => {
   const handleClick = async (
     e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
   ): Promise<void> => {

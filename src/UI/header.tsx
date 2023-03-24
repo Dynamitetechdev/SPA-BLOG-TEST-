@@ -1,5 +1,9 @@
 import { Link } from "react-router-dom";
 
+/**
+ *
+ * @notice The Header and Link Navigations Using Routers
+ */
 const Header = () => {
   return (
     <div className="header">
@@ -8,8 +12,7 @@ const Header = () => {
           <h1>BlogNews</h1>
         </div>
         <li>
-          {" "}
-          <a href="">Dev</a>{" "}
+          <a href="https://github.com/Dynamitetechdev">Developer</a>
         </li>
       </div>
       <div className="bottom-nav ">
