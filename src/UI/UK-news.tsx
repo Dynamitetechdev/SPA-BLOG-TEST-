@@ -16,10 +16,21 @@ const UkNews = () => {
     }
   }, [data]);
 
+  const [searchInput, setSearchInput] = useState<string | null>(null);
+
+  const filteredData = newData.filter((news) =>
+    news.title.toLowerCase().includes(searchInput)
+  );
   return (
     <div className="wrapper">
-      <Search />
-      <AllNews newData={newData} isPending={isPending} error={error} />
+      <div className="search-wrapper">
+        <Search value={searchInput} setValue={setSearchInput} />
+      </div>
+      <AllNews
+        newDataProp={searchInput == null ? newData : filteredData}
+        isPendingProp={isPending}
+        error={error}
+      />
     </div>
   );
 };

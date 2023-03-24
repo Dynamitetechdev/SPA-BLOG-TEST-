@@ -15,11 +15,19 @@ const USNews = () => {
       setNewData(newDataArr);
     }
   }, [data]);
+  const [searchInput, setSearchInput] = useState<string | null>(null);
 
+  const filteredData = newData.filter((news) =>
+    news.title.toLowerCase().includes(searchInput)
+  );
   return (
     <div className="wrapper">
-      <Search />
-      <AllNews newData={newData} isPending={isPending} error={error} />
+      <Search value={searchInput} setValue={setSearchInput} />
+      <AllNews
+        newDataProp={searchInput == null ? newData : filteredData}
+        isPendingProp={isPending}
+        error={error}
+      />
     </div>
   );
 };

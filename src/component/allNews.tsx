@@ -1,28 +1,27 @@
 import { FC } from "react";
+import { Link } from "react-router-dom";
 
 interface Props {
-  newData: [];
-  isPending: boolean;
+  newDataProp: [];
+  isPendingProp: boolean;
   error: string | null;
 }
 
-const AllNews: FC<Props> = ({ newData, isPending, error }) => {
+const AllNews: FC<Props> = ({ newDataProp, isPendingProp, error }) => {
   return (
     <div className="all_news">
-      {isPending && <h1>Loading</h1>}
+      {isPendingProp && <h1>Loading</h1>}
       {error && <h1>{error}</h1>}
-      {newData.map((item: any, index: number) => (
+      {newDataProp.map((item: any, index: number) => (
         <div className="eachNews" key={index}>
           <h1 className="news-title">{item.title}</h1>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse
-            doloremque ipsam suscipit architecto commodi quisquam quam! Dicta,
-            quis est sequi eaque architecto excepturi dolorum sint sapiente...
-          </p>
-          <button>Read More</button>
+          <p>{item.body.slice(0, 120)}...</p>
+          <Link to={`/news/${item.id}`}>
+            <button>Read More</button>
+          </Link>
         </div>
       ))}
-      {newData.length <= 0 ? <h1>No Article</h1> : null}
+      {newDataProp.length <= 0 ? <h1>No Article</h1> : null}
     </div>
   );
 };

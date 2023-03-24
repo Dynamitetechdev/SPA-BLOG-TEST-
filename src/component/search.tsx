@@ -1,10 +1,11 @@
 import { FC, useState } from "react";
 
 interface Props {
-  newData: [];
+  value: string;
+  setValue: string;
 }
-const Search: FC<Props> = ({ newData }) => {
-  const [searchInput, setSearchInput] = useState(null);
+const Search: FC<Props> = ({ value, setValue }) => {
+  //   const [searchInput, setSearchInput] = useState(null);
 
   const handleClick = async (
     e: React.MouseEvent<HTMLAnchorElement, MouseEvent>
@@ -17,12 +18,11 @@ const Search: FC<Props> = ({ newData }) => {
         <input
           type="text"
           placeholder="search news"
-          value={searchInput ?? ""}
-          onChange={(e) => setSearchInput(e.target.value)}
+          value={value ?? ""}
+          onChange={(e) => setValue(e.target.value)}
         />
         <button type="submit">Search</button>
       </form>
-      <p>{searchInput}</p>
     </div>
   );
 };
