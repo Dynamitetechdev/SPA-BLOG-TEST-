@@ -32,16 +32,18 @@ const UkNews = () => {
     news.title.toLowerCase().includes(searchInput)
   );
   return (
-    <div className="wrapper">
-      <div className="search-wrapper">
-        <Search value={searchInput} setValue={setSearchInput} />
+    filteredData && (
+      <div className="wrapper">
+        <div className="search-wrapper">
+          <Search value={searchInput} setValue={setSearchInput} />
+        </div>
+        <AllNews
+          newDataProp={searchInput == null ? newData : filteredData}
+          isPendingProp={isPending}
+          error={error}
+        />
       </div>
-      <AllNews
-        newDataProp={searchInput == null ? newData : filteredData}
-        isPendingProp={isPending}
-        error={error}
-      />
-    </div>
+    )
   );
 };
 
